@@ -1,3 +1,13 @@
+
+/*
+========================================
+File:Passport.js
+Student Name:Sai Krishna Amaraneni
+Student ID:301151074
+Date:
+========================================
+*/
+
 // load passport module 
 var LocalStrategy = require('passport-local').Strategy;
 // load up the user model 

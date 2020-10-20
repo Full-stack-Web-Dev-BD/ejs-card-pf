@@ -122,7 +122,7 @@ app.get('/dashboard', isLoggedIn, function (req, res, next) {
   res.render('dashboard');
 })
 app.get('/contactlist', isLoggedIn, function (req, res, next) {
-  ContactlistModel.find()
+  ContactlistModel.find().sort({name:1})
   .then(contacts=>{
     res.render('contactlist',{post:contacts});
   })
@@ -131,7 +131,6 @@ app.get('/contactlist', isLoggedIn, function (req, res, next) {
   })
 })
 // Edit get route
-
 app.get('/editcontact/:id', (req, res) => {
   console.log(req.params.id);
   ContactlistModel.findById(req.params.id, (error, contact)=>{
@@ -144,11 +143,23 @@ app.get('/editcontact/:id', (req, res) => {
 });
 app.post('/editcontact/:id', (req, res) => {
   // return console.log(req.body);
-  ContactlistModel.findByIdAndUpdate(req.params.id, req.body.contact, (error, updatedBlog)=> {
+  ContactlistModel.findByIdAndUpdate(req.params.id, req.body.contact, (error, updated)=> {
     if(error) {
       res.redirect('/contactlist')
     }else{
       res.redirect('/contactlist/')
+    }
+  })
+});
+
+// delete route
+app.get('/delete/:id', (req, res) =>{
+  //DESTROY BLOG
+  ContactlistModel.findByIdAndRemove(req.params.id, (error)=> {
+    if(error){
+      res.redirect('/contactlist')
+    }else{
+      res.redirect('/contactlist')
     }
   })
 });

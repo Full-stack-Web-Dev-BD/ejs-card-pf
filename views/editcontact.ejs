@@ -28,7 +28,12 @@
                         <label> Email: </label>
                         <input class="form-control" name="contact[email]" value='<%=contact.email%>'>
                     </div>
-                    <input type="submit" class="btn btn-secondary btn-sm mt-4 ">
+                    <div class="d-flex mt-4">
+                        <input type="submit" class="btn btn-secondary btn-sm  mr-2 ">
+                        <a href="/delete/<%= contact._id %>"  class="btn btn-danger btn-sm  mr-2 ">Delete</a>
+                        <a href="/contactlist"  class="btn btn-success btn-sm  mr-2 ">Cancel</a>
+                    </div>
+                    
                 </form>
                </div>
             </div>
