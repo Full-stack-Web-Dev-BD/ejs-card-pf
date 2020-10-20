@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ./partials/header %>
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <% include ./partials/navmenu %>
+
+    <section id="contact ">
+        <div class="container">
+            <div class="error_container">
+                <h2 class="text-center text-uppercase text-danger mt-5 mb-0">Edit Contact</h2>
+                <hr class="star-dark mb-5" />
+                <div class="col-md-6 offset-md-3">
+                <form action="/editcontact/<%=contact._id%>" method="POST" class="form">
+                    <div class="field">
+                        <label> Name: </label>
+                        <input class="form-control" type="text" name="contact[name]" placeholder="name" value='<%=contact.name%>'>
+                    </div>
+                    <div class="field">
+                        <label> Phone Number : </label>
+                        <input class="form-control" type="text" name="contact[number]" placeholder="Number" value='<%=contact.number%>'>
+                    </div>
+                    <div class="field">
+                        <label> Email: </label>
+                        <input class="form-control" name="contact[email]" value='<%=contact.email%>'>
+                    </div>
+                    <input type="submit" class="btn btn-secondary btn-sm mt-4 ">
+                </form>
+               </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer-->
+    <% include ./partials/footer %>
+</body>
+
+</html>
