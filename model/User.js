@@ -14,7 +14,7 @@ var userSchema = mongoose.Schema({
 }); 
  
 
-// Verify if password is valid 
+// Verify if password is valid or not 
 userSchema.methods.validPassword = function(password) { 
     if (password===this.local.password){
         return true
