@@ -13,7 +13,7 @@ var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
 var flash = require('connect-flash');
 const User = require('./model/User');
-const ContactlistModel = require('./model/contactlist');
+const ContactlistModel = require('./model/ContactlistModel');
 const e = require('express');
 
 // Connect Mongodb
